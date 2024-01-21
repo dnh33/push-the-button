@@ -1,6 +1,8 @@
 # Push the Button Minigame with Panda Wallet Integration 🎮
 
-This project is a fun and interactive minigame where players can push a button to increase their score. It's integrated with Panda Wallet for user authentication and uses an SQLite database to store scores. This project is dedicated to Joefroobs 🦧 (@joefroobs).
+This project is a fun and interactive minigame where players can push a button to increase their score. It's integrated with Panda Wallet for user authentication and uses an SQLite database to store scores. 
+
+This project is dedicated to Joefroobs 🦧 (@joefroobs).
 
 ## Tech Stack 🛠️
 
