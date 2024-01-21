@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push the Button Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1>Push the Button Game</h1>
+        <button id="login-button">Login with Panda Wallet</button>
+        <div id="logged-in-indicator" style="display: none;">Logged in</div>
+        <button id="push-button">Push Me!</button>
+        <div id="score-board">
+            <p>Your Score: <span id="player-score">0</span></p>
+        </div>
+        <div id="leaderboard">
+            <h2>Leaderboard</h2>
+            <ul id="leaderboard-list">
+                <!-- Leaderboard entries will be populated here -->
+            </ul>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

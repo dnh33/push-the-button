@@ -1,0 +1,93 @@
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Styling for the game container */
+#game-container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+/* Styling for the game title */
+h1 {
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* Button styling */
+#push-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+#push-button:hover {
+    background-color: #0056b3;
+}
+
+/* Scoreboard styling */
+#score-board {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333333;
+}
+
+/* Leaderboard styling */
+#leaderboard {
+    margin-top: 30px;
+}
+
+#leaderboard h2 {
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+#leaderboard-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#leaderboard-list li {
+    border-bottom: 1px solid #eaeaea;
+    padding: 8px 0;
+}
+
+/* Additional styles for login button and indicator */
+#login-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#login-button:hover {
+    background-color: #45a049;
+}
+
+#logged-in-indicator {
+    color: green;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
