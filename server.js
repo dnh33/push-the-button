@@ -22,6 +22,23 @@ const db = new sqlite3.Database('./game.db', (err) => {
     }
 });
 
+// Endpoint to get the current score for a user
+app.get('/get-score/:userId', (req, res) => {
+    const userId = req.params.userId;
+
+    db.get(
+        `SELECT score FROM scores WHERE userId = ?`,
+        [userId],
+        (err, row) => {
+            if (err) {
+                res.status(500).json({ error: err.message });
+                return;
+            }
+            res.json({ score: row ? row.score : 0 });
+        }
+    );
+});
+
 // Endpoint to check if the user can click
 app.post('/can-click', (req, res) => {
     const { userId } = req.body;

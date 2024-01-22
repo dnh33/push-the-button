@@ -24,6 +24,7 @@ async function connectPandaWallet() {
                 );
                 userId = identityPubKey; // Use public key as user ID
                 toggleLoginState(true);
+                updateUserScoreDisplay(); // Update score on successful login
             } else {
                 toggleLoginState(false);
             }
@@ -71,6 +72,26 @@ function toggleLoginState(isLoggedIn) {
     }
 }
 
+// Function to fetch the current score for the user
+async function fetchCurrentScore(userId) {
+    try {
+        const response = await fetch(`/get-score/${userId}`);
+        const data = await response.json();
+        return data.score;
+    } catch (error) {
+        console.error('Error fetching current score:', error);
+        return 0; // Default to 0 if there's an error
+    }
+}
+
+// Function to update the user's score display
+async function updateUserScoreDisplay() {
+    if (userId) {
+        playerScore = await fetchCurrentScore(userId);
+        document.getElementById('player-score').innerText = playerScore;
+    }
+}
+
 // Function to check if the user can click
 async function canUserClick(userId) {
     try {
@@ -112,7 +133,7 @@ document
             fetch('/update-score', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId, score: 1 }),
+                body: JSON.stringify({ userId }),
             })
                 .then((response) => {
                     if (!response.ok) {
@@ -122,9 +143,7 @@ document
                 })
                 .then((data) => {
                     console.log('Score updated:', data);
-                    playerScore++;
-                    document.getElementById('player-score').innerText =
-                        playerScore;
+                    updateUserScoreDisplay(); // Fetch and display the updated score
                     updateLeaderboard(); // Update the leaderboard after score update
                 })
                 .catch((error) => {
