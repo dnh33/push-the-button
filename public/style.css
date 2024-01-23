@@ -1,7 +1,7 @@
 /* General body styling */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f4f4f4; /* This might need to be adjusted to match the exact background color of the image */
     margin: 0;
     padding: 0;
     display: flex;
@@ -13,81 +13,120 @@ body {
 /* Styling for the game container */
 #game-container {
     text-align: center;
-    background-color: #ffffff;
-    padding: 20px;
+    background-color: #ffffff; /* Match the exact color from the image */
+    padding: 40px; /* Increased padding for a more spacious look */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 300px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); /* Softer shadow as seen in the image */
+    width: 350px; /* Adjust width to match the design */
 }
 
 /* Styling for the game title */
 h1 {
-    color: #333333;
-    margin-bottom: 20px;
+    color: #000000; /* Text color seems to be pure black */
+    font-size: 24px; /* Larger font size for the title */
+    font-weight: bold; /* Bold font weight */
+    margin-bottom: 30px; /* More space below the title */
 }
 
 /* Button styling */
 #push-button {
-    background-color: #007bff;
+    background-color: #ff9900; /* Orange color for the button */
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 15px 30px; /* Larger padding for a bigger button */
+    font-size: 18px; /* Larger font size for button text */
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 30px; /* More rounded corners for the button */
     transition: background-color 0.3s ease;
+    margin-top: 20px; /* Space above the button */
+    width: 100%; /* Full width button */
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
 }
 
 #push-button:hover {
-    background-color: #0056b3;
+    background-color: #cc7a00; /* Darker shade on hover */
 }
 
 /* Scoreboard styling */
 #score-board {
-    margin-top: 20px;
-    font-size: 18px;
+    margin-top: 40px; /* More space above the scoreboard */
+    font-size: 20px; /* Larger font size for scoreboard */
     color: #333333;
+    text-align: left; /* Align text to the left */
+    padding-left: 20px; /* Padding inside the scoreboard for alignment */
 }
 
 /* Leaderboard styling */
 #leaderboard {
-    margin-top: 30px;
+    margin-top: 50px; /* More space above the leaderboard */
 }
 
 #leaderboard h2 {
-    color: #333333;
-    margin-bottom: 10px;
+    color: #000000; /* Text color seems to be pure black */
+    font-size: 22px; /* Larger font size for the leaderboard title */
+    font-weight: bold; /* Bold font weight */
+    margin-bottom: 20px; /* More space below the leaderboard title */
 }
 
 #leaderboard-list {
     list-style-type: none;
     padding: 0;
+    text-align: left; /* Align text to the left */
 }
 
+/* Leaderboard list item styling */
 #leaderboard-list li {
-    border-bottom: 1px solid #eaeaea;
-    padding: 8px 0;
+    border-bottom: 2px solid #eaeaea; /* Thicker border for list items */
+    padding: 10px 0; /* Adjust padding for list items */
+    font-size: 16px; /* Adjust font size for list items */
+    display: flex;
+    justify-content: space-between; /* Space out the rank, id, and score */
+    align-items: center;
+    margin: 0 20px; /* Horizontal padding for alignment with the title */
 }
 
-/* Additional styles for login button and indicator */
+/* Leaderboard rank styling */
+.leaderboard-rank {
+    font-weight: bold; /* Bold for the rank number */
+    color: #ff9900; /* Orange color to match the buttons */
+    margin-right: 5px; /* Space between rank and ID */
+}
+
+/* Leaderboard ID styling */
+.leaderboard-id {
+    flex-grow: 1; /* Allow the ID to take up available space */
+    text-align: left; /* Align the ID to the left */
+    margin-right: 10px; /* Space before the score */
+}
+
+/* Leaderboard score styling */
+.leaderboard-score {
+    font-weight: bold; /* Bold for the score */
+}
+
+/* Additional styles for login button */
 #login-button {
-    background-color: #4caf50;
+    background-color: #ff9900; /* Orange color to match the push button */
     color: white;
-    padding: 10px 20px;
-    font-size: 16px;
     border: none;
-    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px; /* Adjust as needed */
+    border-radius: 30px; /* Rounded corners to match the push button */
     cursor: pointer;
-    margin-bottom: 10px;
     transition: background-color 0.3s ease;
+    margin-top: 20px; /* Consistent spacing with the push button */
+    width: 100%; /* Full-width button */
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
 }
 
 #login-button:hover {
-    background-color: #45a049;
+    background-color: #cc7a00; /* Darker shade for hover effect */
 }
 
+/* Styles for logged-in indicator */
 #logged-in-indicator {
-    color: green;
-    font-size: 16px;
-    margin-bottom: 10px;
+    color: #4caf50; /* Green color for successful login indication */
+    font-size: 18px; /* Slightly larger font size for visibility */
+    margin-top: 20px; /* Spacing above the indicator */
+    display: none; /* Initially hidden until login is successful */
 }

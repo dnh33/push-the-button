@@ -172,10 +172,29 @@ function updateLeaderboard() {
             leaderboardList.innerHTML = ''; // Clear existing list
 
             data.data.forEach((player, index) => {
+                const truncatedUserId = player.userId.substring(0, 5); // Truncate the ID
                 const listItem = document.createElement('li');
-                listItem.textContent = `${index + 1}. ${
-                    player.userId
-                } - Score: ${player.score}`;
+
+                // Create span for rank
+                const rankSpan = document.createElement('span');
+                rankSpan.classList.add('leaderboard-rank');
+                rankSpan.textContent = `${index + 1}.`;
+
+                // Create span for user ID
+                const idSpan = document.createElement('span');
+                idSpan.classList.add('leaderboard-id');
+                idSpan.textContent = truncatedUserId;
+
+                // Create span for score
+                const scoreSpan = document.createElement('span');
+                scoreSpan.classList.add('leaderboard-score');
+                scoreSpan.textContent = `Score: ${player.score}`;
+
+                // Append children to the list item
+                listItem.appendChild(rankSpan);
+                listItem.appendChild(idSpan);
+                listItem.appendChild(scoreSpan);
+
                 leaderboardList.appendChild(listItem);
             });
         })
