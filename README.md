@@ -15,7 +15,8 @@ This project is dedicated to Joefroobs 🦧 (@joefroobs).
 
 1. Clone the repository to your local machine.
 2. Run `npm install` to install the necessary packages.
-3. Start the server with `node server.js`.
+3. Remove the existing game.db, and create a new file with the same name
+4. Start the server with `node server.js`.
 
 The Express server will serve the website files from the `/public` directory.
 
