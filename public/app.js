@@ -42,7 +42,7 @@ async function handlePayment() {
             {
                 satoshis: 1000,
                 // 0.00001 BSV in Satoshis or change this to the amount you wish to send
-                address: '18VcgMd5HsQRGUe2XZe1HB24PZFPC8WKSm',
+                address: '15nFptkLu8g3zey1L9AEDkLxHZXgRPjYDS',
                 // Change this to your own address or a dedicated wallet address
             },
         ];
