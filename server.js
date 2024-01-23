@@ -17,7 +17,8 @@ const db = new sqlite3.Database('./game.db', (err) => {
         db.run(`CREATE TABLE IF NOT EXISTS scores (
             userId TEXT PRIMARY KEY,
             score INTEGER DEFAULT 0,
-            last_clicked DATETIME
+            last_clicked DATETIME,
+            prize_pool REAL DEFAULT 0
         )`);
     }
 });
@@ -70,28 +71,54 @@ app.post('/can-click', (req, res) => {
     );
 });
 
-// Endpoint to update user score
+// Endpoint to update user score and prize pool
 app.post('/update-score', (req, res) => {
     const { userId } = req.body;
+    const contributionSatoshis = 1000; // The amount each push contributes in satoshis
+    const contributionBSV = contributionSatoshis / 100000000; // Convert to BSV
     const currentTime = new Date();
 
-    const query = `INSERT INTO scores(userId, score, last_clicked) VALUES(?, 1, ?)
-                  ON CONFLICT(userId) DO UPDATE SET score = score + 1, last_clicked = ?`;
+    const updateScoreQuery = `INSERT INTO scores(userId, score, last_clicked, prize_pool) VALUES(?, 1, ?, ?)
+                              ON CONFLICT(userId) DO UPDATE SET 
+                                score = score + 1, 
+                                last_clicked = ?,
+                                prize_pool = prize_pool + ?`;
+
     db.run(
-        query,
-        [userId, currentTime.toISOString(), currentTime.toISOString()],
-        function (updateErr) {
-            if (updateErr) {
-                res.status(500).json({ error: updateErr.message });
+        updateScoreQuery,
+        [
+            userId,
+            currentTime.toISOString(),
+            contributionBSV,
+            currentTime.toISOString(),
+            contributionBSV,
+        ],
+        function (err) {
+            if (err) {
+                res.status(500).json({ error: err.message });
                 return;
             }
             res.json({
-                message: 'Score updated successfully',
+                message: 'Score and prize pool updated successfully',
                 userId,
                 score: this.changes,
+                prize_pool: contributionBSV,
             });
         }
     );
+});
+
+// Endpoint to get the current prize pot total
+app.get('/prize-pot', (req, res) => {
+    const getPrizePotQuery = `SELECT SUM(prize_pool) as total FROM scores`;
+
+    db.get(getPrizePotQuery, [], (err, row) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+            return;
+        }
+        res.json({ totalPot: row.total || 0 });
+    });
 });
 
 // Endpoint to get leaderboard

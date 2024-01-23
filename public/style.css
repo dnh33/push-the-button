@@ -1,132 +1,179 @@
 /* General body styling */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4; /* This might need to be adjusted to match the exact background color of the image */
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex-wrap: wrap; /* Enable wrapping for smaller screens */
+}
+
+/* Main container for layout */
+.main-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px; /* Space between left box and game container */
+}
+
+/* Styling for the left box */
+.left-box,
+.right-box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    min-width: 100px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    height: fit-content;
+    flex-direction: column;
+    gap: 20px; /* Space between leaderboard and transaction info */
 }
 
 /* Styling for the game container */
 #game-container {
     text-align: center;
-    background-color: #ffffff; /* Match the exact color from the image */
-    padding: 40px; /* Increased padding for a more spacious look */
+    background-color: #ffffff;
+    padding: 40px;
     border-radius: 8px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); /* Softer shadow as seen in the image */
-    width: 350px; /* Adjust width to match the design */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 350px;
 }
 
 /* Styling for the game title */
 h1 {
-    color: #000000; /* Text color seems to be pure black */
-    font-size: 24px; /* Larger font size for the title */
-    font-weight: bold; /* Bold font weight */
-    margin-bottom: 30px; /* More space below the title */
+    color: #000000;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
 }
 
 /* Button styling */
-#push-button {
-    background-color: #ff9900; /* Orange color for the button */
+#push-button,
+#login-button {
+    background-color: #ff9900;
     color: white;
     border: none;
-    padding: 15px 30px; /* Larger padding for a bigger button */
-    font-size: 18px; /* Larger font size for button text */
+    padding: 15px 30px;
+    font-size: 18px;
     cursor: pointer;
-    border-radius: 30px; /* More rounded corners for the button */
+    border-radius: 30px;
     transition: background-color 0.3s ease;
-    margin-top: 20px; /* Space above the button */
-    width: 100%; /* Full width button */
-    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    margin-top: 20px;
+    margin-bottom: 32px;
+    width: 100%;
+
+    box-sizing: border-box;
 }
 
-#push-button:hover {
-    background-color: #cc7a00; /* Darker shade on hover */
+#push-button:hover,
+#login-button:hover {
+    background-color: #cc7a00;
 }
 
 /* Scoreboard styling */
 #score-board {
-    margin-top: 40px; /* More space above the scoreboard */
-    font-size: 20px; /* Larger font size for scoreboard */
+    margin-top: 40px;
+    font-size: 20px;
     color: #333333;
-    text-align: left; /* Align text to the left */
-    padding-left: 20px; /* Padding inside the scoreboard for alignment */
+    text-align: left;
 }
 
 /* Leaderboard styling */
-#leaderboard {
-    margin-top: 50px; /* More space above the leaderboard */
-}
-
-#leaderboard h2 {
-    color: #000000; /* Text color seems to be pure black */
-    font-size: 22px; /* Larger font size for the leaderboard title */
-    font-weight: bold; /* Bold font weight */
-    margin-bottom: 20px; /* More space below the leaderboard title */
+#leaderboard h2,
+#transaction-info h2 {
+    color: #000000;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 #leaderboard-list {
     list-style-type: none;
     padding: 0;
-    text-align: left; /* Align text to the left */
+    text-align: left;
 }
 
-/* Leaderboard list item styling */
 #leaderboard-list li {
-    border-bottom: 2px solid #eaeaea; /* Thicker border for list items */
-    padding: 10px 0; /* Adjust padding for list items */
-    font-size: 16px; /* Adjust font size for list items */
+    border-bottom: 2px solid #eaeaea;
+    padding: 10px 0;
+    font-size: 16px;
     display: flex;
-    justify-content: space-between; /* Space out the rank, id, and score */
+    justify-content: space-between;
     align-items: center;
-    margin: 0 20px; /* Horizontal padding for alignment with the title */
+    margin: 0 20px;
 }
 
-/* Leaderboard rank styling */
-.leaderboard-rank {
-    font-weight: bold; /* Bold for the rank number */
-    color: #ff9900; /* Orange color to match the buttons */
-    margin-right: 5px; /* Space between rank and ID */
-}
-
-/* Leaderboard ID styling */
-.leaderboard-id {
-    flex-grow: 1; /* Allow the ID to take up available space */
-    text-align: left; /* Align the ID to the left */
-    margin-right: 10px; /* Space before the score */
-}
-
-/* Leaderboard score styling */
+.leaderboard-rank,
+.leaderboard-id,
 .leaderboard-score {
-    font-weight: bold; /* Bold for the score */
+    font-weight: bold;
 }
 
-/* Additional styles for login button */
-#login-button {
-    background-color: #ff9900; /* Orange color to match the push button */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px; /* Adjust as needed */
-    border-radius: 30px; /* Rounded corners to match the push button */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 20px; /* Consistent spacing with the push button */
-    width: 100%; /* Full-width button */
-    box-sizing: border-box; /* Ensures padding doesn't affect width */
+.leaderboard-rank {
+    color: #ff9900;
+    margin-right: 5px;
 }
 
-#login-button:hover {
-    background-color: #cc7a00; /* Darker shade for hover effect */
+.leaderboard-id {
+    flex-grow: 1;
+    text-align: left;
+    margin-right: 10px;
+}
+
+/* Prize Pot Container */
+#prize-pot-container {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+#prize-pot-container h2 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#prize-pot-container p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+#prize-pot {
+    font-weight: bold;
+    color: #ff9900;
 }
 
 /* Styles for logged-in indicator */
 #logged-in-indicator {
-    color: #4caf50; /* Green color for successful login indication */
-    font-size: 18px; /* Slightly larger font size for visibility */
-    margin-top: 20px; /* Spacing above the indicator */
-    display: none; /* Initially hidden until login is successful */
+    color: #4caf50;
+    font-size: 18px;
+    margin-top: 20px;
+    display: none;
+}
+
+/* Transaction info styling */
+#transaction-info {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+#transaction-info h2 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#transaction-info p {
+    font-size: 16px;
+    color: #555;
 }

@@ -25,6 +25,7 @@ async function connectPandaWallet() {
                 userId = identityPubKey; // Use public key as user ID
                 toggleLoginState(true);
                 updateUserScoreDisplay(); // Update score on successful login
+                updatePrizePotDisplay(); // Update prize pot on successful login
             } else {
                 toggleLoginState(false);
             }
@@ -40,14 +41,18 @@ async function handlePayment() {
         const paymentParams = [
             {
                 satoshis: 1000,
+                // 0.00001 BSV in Satoshis or change this to the amount you wish to send
                 address: '18VcgMd5HsQRGUe2XZe1HB24PZFPC8WKSm',
+                // Change this to your own address or a dedicated wallet address
             },
         ];
 
         const { txid, rawtx } = await panda.sendBsv(paymentParams);
         console.log('Txid', txid);
 
-        // Assuming transaction is successful
+        document.getElementById('txid').textContent = txid;
+        document.getElementById('transaction-info').style.display = 'block';
+
         return true;
     } catch (err) {
         console.error('Error handling payment:', err);
@@ -64,11 +69,11 @@ function toggleLoginState(isLoggedIn) {
     if (isLoggedIn) {
         loginButton.style.display = 'none';
         loggedInIndicator.style.display = 'block';
-        pushButton.disabled = false; // Enable the button
+        pushButton.disabled = false;
     } else {
         loginButton.style.display = 'block';
         loggedInIndicator.style.display = 'none';
-        pushButton.disabled = true; // Disable the button
+        pushButton.disabled = true;
     }
 }
 
@@ -80,7 +85,7 @@ async function fetchCurrentScore(userId) {
         return data.score;
     } catch (error) {
         console.error('Error fetching current score:', error);
-        return 0; // Default to 0 if there's an error
+        return 0;
     }
 }
 
@@ -89,6 +94,17 @@ async function updateUserScoreDisplay() {
     if (userId) {
         playerScore = await fetchCurrentScore(userId);
         document.getElementById('player-score').innerText = playerScore;
+    }
+}
+
+// Function to fetch and update the prize pot display
+async function updatePrizePotDisplay() {
+    try {
+        const response = await fetch('/prize-pot');
+        const data = await response.json();
+        document.getElementById('prize-pot').innerText = `${data.totalPot} BSV`;
+    } catch (error) {
+        console.error('Error fetching prize pot:', error);
     }
 }
 
@@ -145,6 +161,7 @@ document
                     console.log('Score updated:', data);
                     updateUserScoreDisplay(); // Fetch and display the updated score
                     updateLeaderboard(); // Update the leaderboard after score update
+                    updatePrizePotDisplay(); // Update the prize pot display
                 })
                 .catch((error) => {
                     console.error('Error:', error);
@@ -169,28 +186,21 @@ function updateLeaderboard() {
         .then((response) => response.json())
         .then((data) => {
             const leaderboardList = document.getElementById('leaderboard-list');
-            leaderboardList.innerHTML = ''; // Clear existing list
+            leaderboardList.innerHTML = '';
 
             data.data.forEach((player, index) => {
-                const truncatedUserId = player.userId.substring(0, 5); // Truncate the ID
+                const truncatedUserId = player.userId.substring(0, 5);
                 const listItem = document.createElement('li');
-
-                // Create span for rank
                 const rankSpan = document.createElement('span');
                 rankSpan.classList.add('leaderboard-rank');
                 rankSpan.textContent = `${index + 1}.`;
-
-                // Create span for user ID
                 const idSpan = document.createElement('span');
                 idSpan.classList.add('leaderboard-id');
                 idSpan.textContent = truncatedUserId;
-
-                // Create span for score
                 const scoreSpan = document.createElement('span');
                 scoreSpan.classList.add('leaderboard-score');
                 scoreSpan.textContent = `Score: ${player.score}`;
 
-                // Append children to the list item
                 listItem.appendChild(rankSpan);
                 listItem.appendChild(idSpan);
                 listItem.appendChild(scoreSpan);
@@ -205,7 +215,7 @@ function updateLeaderboard() {
 window.addEventListener('load', async function () {
     if (panda && panda.isReady) {
         await connectPandaWallet();
+        updateLeaderboard(); // Update leaderboard on initial load
+        updatePrizePotDisplay(); // Update prize pot display on initial load
     }
-
-    updateLeaderboard(); // Update leaderboard on initial load
 });
