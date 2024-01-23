@@ -25,4 +25,4 @@ Feel free to explore the codebase and make any modifications you like. Happy hac
 
 ## License 📄
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the GPL-3 License. See the `LICENSE` file for details.
