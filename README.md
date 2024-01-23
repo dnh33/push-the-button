@@ -10,6 +10,7 @@ This project is dedicated to Joefroobs 🦧 (@joefroobs).
 - [Panda Wallet](https://panda-wallet.gitbook.io/provider-api/quick-start/getting-started)
 - [Express.js](https://expressjs.com/)
 - [SQLite](https://www.sqlite.org/index.html)
+- Vercel configuration file (vercel.json) to host express.js backend with static frontend
 
 ## Getting Started 🚀
 
