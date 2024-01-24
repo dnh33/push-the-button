@@ -139,7 +139,7 @@ document
         try {
             const clickCheck = await canUserClick(userId);
             if (!clickCheck.canClick) {
-                alert('You can only click Three times every 24 hours.');
+                alert('You can only click once every 24 hours.');
                 return;
             }
 
