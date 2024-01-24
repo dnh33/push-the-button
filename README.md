@@ -20,7 +20,7 @@ This project is dedicated to Joefroobs 🦧 (@joefroobs).
 
 The Express server will serve the website files from the `/public` directory.
 
-## Hosting Your Express.js Powered Web App on Glitch (1000 hours free tier)
+## Hosting Your Express.js Powered Web App on Glitch
 
 Hosting your Express.js powered web app on Glitch is a straightforward process. This platform is ideal for beginners due to its simplicity and ease of use. Follow these steps to host your web app:
 
