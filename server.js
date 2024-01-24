@@ -45,28 +45,24 @@ app.post('/can-click', (req, res) => {
     const { userId } = req.body;
     const currentTime = new Date();
 
-    db.get(
-        `SELECT last_clicked FROM scores WHERE userId = ?`,
-        [userId],
-        (err, row) => {
+    // Fetch the user's clicks from the last 24 hours
+    db.all(
+        `SELECT * FROM clicks WHERE userId = ? AND time > ?`,
+        [userId, currentTime.getTime() - 24 * 60 * 60 * 1000],
+        (err, rows) => {
             if (err) {
                 res.status(500).json({ error: err.message });
                 return;
             }
 
-            if (row && row.last_clicked) {
-                const lastClickedTime = new Date(row.last_clicked);
-                const diffHours =
-                    (currentTime - lastClickedTime) / (1000 * 60 * 60);
-                if (diffHours < 24) {
-                    res.status(403).json({
-                        message: 'Click allowed only once every 24 hours.',
-                    });
-                    return;
-                }
+            // If the number of clicks is less than or equal to 3, return { canClick: true }
+            if (rows.length <= 3) {
+                res.json({ canClick: true });
+            } else {
+                res.status(403).json({
+                    message: 'You can only click three times every 24 hours',
+                });
             }
-
-            res.json({ canClick: true });
         }
     );
 });
