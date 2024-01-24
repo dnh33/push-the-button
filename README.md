@@ -21,6 +21,23 @@ This project is dedicated to Joefroobs 🦧 (@joefroobs).
 
 The Express server will serve the website files from the `/public` directory.
 
+## Hosting Your Express.js Powered Web App on Glitch (1000 hours free tier)
+
+Hosting your Express.js powered web app on Glitch is a straightforward process. This platform is ideal for beginners due to its simplicity and ease of use. Follow these steps to host your web app:
+
+1. **Create a Glitch Account**: Visit [Glitch](https://glitch.com/) and sign up for a free account.
+
+2. **Import Your Project**: After signing in, click on `New Project` > `Import from GitHub`. Enter the URL of your GitHub repository where your Express.js project is hosted.
+
+3. **Configure Your Project**: Once your project is imported, you can edit the project files directly in your browser. Ensure your project has a `package.json` file, which lists all the dependencies your project needs to run. Also, confirm your project has a start script in the `package.json` file under the `"scripts"` section. This tells Glitch how to start your app. For an Express.js app, it would typically be `"start": "node app.js"`, assuming `app.js` is the entry point of your app.
+
+4. **Start Your App**: Click on `Tools` > `Terminal` to open the terminal in your Glitch editor. Run `refresh` to restart your app and apply any changes you made.
+
+5. **Access Your App**: Your app is now running and can be accessed via the URL provided by Glitch, which is displayed at the top of your screen.
+
+Please note that Glitch has some limitations. The starter plan only offers 1000 "project hours" per month, which is reset monthly. This is used when you're actively editing the site or if someone is accessing it. If no one is accessing or editing the site it will sleep. The starter plan environment has a limited amount of container RAM and storage space. Custom domains are not well supported (at time of writing). However, considering that a typical Express.js application runs continuously and does not consume much CPU or memory, 1000 project hours should be more than sufficient to run your app for free every month [Source 0](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment).
+
+
 ## Happy Hacking! 💻
 
 Feel free to explore the codebase and make any modifications you like. Happy hacking!
