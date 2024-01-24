@@ -1,16 +1,15 @@
 # Push the Button Minigame with Panda Wallet Integration 🎮
 
-This project is a template for a fun and interactive minigame where players can push a button to increase their score. It's integrated with Panda Wallet for user authentication and uses an SQLite database to store scores. 
+This project is a template for a fun and interactive minigame where players can push a button to increase their score. It's integrated with Panda Wallet for user authentication and uses an SQLite database to store scores.
 
 This project is dedicated to Joefroobs 🦧 (@joefroobs).
 
 ## Tech Stack 🛠️
 
-- HTML, CSS, JavaScript
-- [Panda Wallet](https://panda-wallet.gitbook.io/provider-api/quick-start/getting-started)
-- [Express.js](https://expressjs.com/)
-- [SQLite](https://www.sqlite.org/index.html)
-- Vercel configuration file (vercel.json) to host express.js backend with static frontend
+-   HTML, CSS, JavaScript
+-   [Panda Wallet](https://panda-wallet.gitbook.io/provider-api/quick-start/getting-started)
+-   [Express.js](https://expressjs.com/)
+-   [SQLite](https://www.sqlite.org/index.html)
 
 ## Getting Started 🚀
 
@@ -36,7 +35,6 @@ Hosting your Express.js powered web app on Glitch is a straightforward process. 
 5. **Access Your App**: Your app is now running and can be accessed via the URL provided by Glitch, which is displayed at the top of your screen.
 
 Please note that Glitch has some limitations. The starter plan only offers 1000 "project hours" per month, which is reset monthly. This is used when you're actively editing the site or if someone is accessing it. If no one is accessing or editing the site it will sleep. The starter plan environment has a limited amount of container RAM and storage space. Custom domains are not well supported (at time of writing). However, considering that a typical Express.js application runs continuously and does not consume much CPU or memory, 1000 project hours should be more than sufficient to run your app for free every month.
-
 
 ## Happy Hacking! 💻
 
