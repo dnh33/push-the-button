@@ -30,7 +30,9 @@ Hosting your Express.js powered web app on Glitch is a straightforward process. 
 
 3. **Configure Your Project**: Once your project is imported, you can edit the project files directly in your browser. Ensure your project has a `package.json` file, which lists all the dependencies your project needs to run.
 
-4. **Start Your App**: Click on `Tools` > `Terminal` to open the terminal in your Glitch editor. Run `node server.js` to start your app and apply any changes you made.
+4. **Add '"scripts": {
+    "start": "node server.js"
+  },' to 'package.json' and Glitch will run your app by itself. If it doesn't. Open the terminal and type 'refresh'.
 
 5. **Access Your App**: Your app is now running and can be accessed via the URL provided by Glitch, which is displayed at the top of your screen.
 
