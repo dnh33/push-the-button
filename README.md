@@ -35,7 +35,7 @@ Hosting your Express.js powered web app on Glitch is a straightforward process. 
 
 5. **Access Your App**: Your app is now running and can be accessed via the URL provided by Glitch, which is displayed at the top of your screen.
 
-Please note that Glitch has some limitations. The starter plan only offers 1000 "project hours" per month, which is reset monthly. This is used when you're actively editing the site or if someone is accessing it. If no one is accessing or editing the site it will sleep. The starter plan environment has a limited amount of container RAM and storage space. Custom domains are not well supported (at time of writing). However, considering that a typical Express.js application runs continuously and does not consume much CPU or memory, 1000 project hours should be more than sufficient to run your app for free every month [Source 0](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment).
+Please note that Glitch has some limitations. The starter plan only offers 1000 "project hours" per month, which is reset monthly. This is used when you're actively editing the site or if someone is accessing it. If no one is accessing or editing the site it will sleep. The starter plan environment has a limited amount of container RAM and storage space. Custom domains are not well supported (at time of writing). However, considering that a typical Express.js application runs continuously and does not consume much CPU or memory, 1000 project hours should be more than sufficient to run your app for free every month.
 
 
 ## Happy Hacking! 💻
