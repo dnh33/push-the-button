@@ -1,27 +1,35 @@
 /* General body styling */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    background-image: url('https://cdn.glitch.global/e1c0d02f-c158-4c15-af19-3592bdb363c9/bg.webp?v=1706068720918');
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the image in the viewport */
+    background-attachment: fixed; /* The image won't scroll with the page */
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    flex-wrap: wrap; /* Enable wrapping for smaller screens */
+    flex-wrap: wrap;
 }
 
 /* Main container for layout */
 .main-container {
     display: flex;
     justify-content: space-around;
-    gap: 20px; /* Space between left box and game container */
+    gap: 20px;
 }
 
 /* Styling for the left box */
 .left-box,
 .right-box {
-    background-color: #ffffff;
+    background-color: rgba(
+        255,
+        255,
+        255,
+        0.9
+    ); /* Slightly transparent to show the background */
     padding: 20px;
     border-radius: 8px;
     min-width: 100px;
@@ -29,13 +37,18 @@ body {
     display: flex;
     height: fit-content;
     flex-direction: column;
-    gap: 20px; /* Space between leaderboard and transaction info */
+    gap: 20px;
 }
 
 /* Styling for the game container */
 #game-container {
     text-align: center;
-    background-color: #ffffff;
+    background-color: rgba(
+        255,
+        255,
+        255,
+        0.9
+    ); /* Slightly transparent to show the background */
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);

@@ -102,7 +102,8 @@ async function updatePrizePotDisplay() {
     try {
         const response = await fetch('/prize-pot');
         const data = await response.json();
-        document.getElementById('prize-pot').innerText = `${data.totalPot} BSV`;
+        const truncatedPot = Math.floor(data.totalPot * 100000) / 100000; // Truncates to 5 decimal places
+        document.getElementById('prize-pot').innerText = `${truncatedPot} BSV`;
     } catch (error) {
         console.error('Error fetching prize pot:', error);
     }

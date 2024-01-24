@@ -40,35 +40,9 @@ app.get('/get-score/:userId', (req, res) => {
     );
 });
 
-// Endpoint to check if the user can click
+// Updated endpoint to always allow clicks
 app.post('/can-click', (req, res) => {
-    const { userId } = req.body;
-    const currentTime = new Date();
-
-    db.get(
-        `SELECT last_clicked FROM scores WHERE userId = ?`,
-        [userId],
-        (err, row) => {
-            if (err) {
-                res.status(500).json({ error: err.message });
-                return;
-            }
-
-            if (row && row.last_clicked) {
-                const lastClickedTime = new Date(row.last_clicked);
-                const diffHours =
-                    (currentTime - lastClickedTime) / (1000 * 60 * 60);
-                if (diffHours < 24) {
-                    res.status(403).json({
-                        message: 'Click allowed only once every 24 hours.',
-                    });
-                    return;
-                }
-            }
-
-            res.json({ canClick: true });
-        }
-    );
+    res.json({ canClick: true });
 });
 
 // Endpoint to update user score and prize pool
